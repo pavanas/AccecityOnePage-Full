@@ -2,8 +2,10 @@ var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 //var scss = require('!css!sass!./file.scss');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var purifyCss = require('purifycss-webpack-plugin');
+//var purifyCss = require('purifycss-webpack-plugin');
 var path = require('path');
+
+//var extractSCSS = new ExtractTextPlugin('accecity.css');
 
 module.exports = {
   context: path.join(__dirname, "src"),
@@ -20,8 +22,9 @@ module.exports = {
         }
       },
       {
-        test: /\.scss?$/,
-        loader: ExtractTextPlugin.extract("css!sass")
+        test: /\.scss?$/i,
+        loader: ExtractTextPlugin.extract(['css','sass'])
+        //loader: extractSCSS.extract(['css','sass'])
       }
     ]
   },
@@ -29,9 +32,9 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "accecity.min.js"
   },
-  sassLoader: {
-    includePaths: ['']
-  },
+  // sassLoader: {
+  //   includePaths: ['']
+  // },
   plugins: debug ? [
     new ExtractTextPlugin('accecity.css')
   ] : [
@@ -39,6 +42,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
     new ExtractTextPlugin('accecity.css'),
-    new purifyCss({ basePath: __dirname+'/src/', minify: true})
+    //extractSCSS,
+    //new purifyCss({ basePath: __dirname+'/src/', minify: true})
   ],
 };
