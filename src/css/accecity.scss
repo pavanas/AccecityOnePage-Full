@@ -152,13 +152,14 @@ header {
 	.logo {
 		background-image: url('/images/logo.png');
 		background-repeat: no-repeat;
-		background-size: contain;
+		background-size: 115% 115%;
+		background-position: center;
 		position: absolute;
 		top: 10px;
 		left: 20px;
 		width: 120px;
 		height: 120px;
-		box-shadow: 0 0px 10px 0px rgba(0,0,0,0.8);
+		box-shadow: 0 0px 10px 1px rgba(0,0,0,0.8);
 		border-radius: 50%;
 		z-index: 2000;
 	}
@@ -220,8 +221,8 @@ header {
 	height: auto;
 
 	.about {
-		height: 110vh;
-		max-height: 660px;
+		height: 192vh;
+		max-height: 1660px;
 
 		.title {
 			text-align: center;
@@ -289,6 +290,11 @@ header {
 				// background-size: contain;
 			}
 		}
+
+		.video > iframe{
+			width: 100%;
+			height: 90vh;
+		}
 	}
 
 	@media (max-width: $bp6) {
@@ -310,6 +316,10 @@ header {
 				div:nth-child(4) {
 					order: 3;
 				}
+			}
+
+			.video > iframe{
+				height: 90vh;
 			}
 		}
 	}
@@ -488,9 +498,11 @@ header {
 				}
 
 				.frame1 {
-				  	background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/170956/city-739873_640.jpg");
+				  	//background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/170956/city-739873_640.jpg");
+				  	background-image: url('/images/mkp1.png');
 				  	background-repeat: no-repeat;
 				  	background-position: center bottom;
+				  	background-size: cover;
 				  	left: 0;
 				  	transform: translateZ(0px);
 
@@ -647,10 +659,12 @@ header {
 
 		      	.frame2 {
 
-		      		background-image: linear-gradient(135deg, #fc814a 10%, rgba(27, 73, 101, 0.9) 10.1%, rgba(27, 73, 101, 0.9) 80%);
+		      		//background-image: linear-gradient(135deg, #fc814a 10%, rgba(27, 73, 101, 0.9) 10.1%, rgba(27, 73, 101, 0.9) 80%);
+  					background-image: url('/images/mkp2.png');
   					background-size: 100%;
 					background-position: top right;
 					background-repeat: no-repeat;
+					background-size: cover;
 					position: relative;
 					left: 127px;
 					transform: translateZ(-40px);
@@ -894,7 +908,8 @@ header {
 		      	}
 
 		      	.frame3 {
-		      		background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/170956/map.png");
+		      		//background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/170956/map.png");
+		      		background-image: url('/images/mkp3.png');
 				  	background-repeat: no-repeat;
 				  	background-size: cover;
 				  	background-position: top center;
